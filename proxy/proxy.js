@@ -3,12 +3,12 @@ import { router } from "https://deno.land/x/rutt/mod.ts";
 
 await serve(
   router({
-    "/next-app/*?": (req) => proxyReq(req, "localhost:3000"),
-    "/*?": (req) => proxyReq(req, "localhost:4173"),
+    "/next-app/*?": (req) => rewriteReq(req, "localhost:3000"),
+    "/*?": (req) => rewriteReq(req, "localhost:4173"),
   })
 );
 
-function proxyReq(req, host) {
+function rewriteReq(req, host) {
   const url = new URL(req.url);
   url.host = host;
   console.log(`Proxying to ${url.toString()}`);

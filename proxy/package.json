@@ -1,0 +1,11 @@
+{
+  "name": "proxy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "deno run --allow-net proxy.js"
+  },
+  "dependencies": {
+    "itty-router": "^3.0.12"
+  }
+}
